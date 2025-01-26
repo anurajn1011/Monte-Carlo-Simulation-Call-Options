@@ -21,6 +21,3 @@ class BlackScholesMerton:
         put = (self.strike_price * math.exp(-self.r * self.maturity) * norm.cdf(-self.d2)) - (self.S0 * math.exp(-self.div * self.maturity) * norm.cdf(-self.d1))
         return put
     
-test = BlackScholesMerton(60, 50, 4/12, 0.03, 0.375, 0)
-print("Call: ", test.call())
-print("Put", test.put())
