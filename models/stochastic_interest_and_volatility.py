@@ -24,7 +24,7 @@ def correlatedWienerProcess(delta_T, num_steps, num_traj, bool_interest=False, b
             for _ in range(num_steps):
                 delZ = np.random.randn(2, num_traj)
                 delZ = QuadraticResampling(delZ, np.zeros((2, 1)), np.identity(2))
-                delW = lower_triangular * delZ
+                delW = lower_triangular @ delZ
                 return delW
         else:
             print("Stochastic volatility has not yet been implemented: ", correlation_coefficient_S_sigma)
